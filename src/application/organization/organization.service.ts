@@ -95,7 +95,7 @@ export class OrganizationService extends BaseService<Organization> {
     const [items, count] = await queryBuilder
       .take(limit)
       .skip((page - 1) * limit)
-      .orderBy('ch.createdAt', OrderByEnum.DESC)
+      .orderBy('organization.createdAt', OrderByEnum.DESC)
       .getManyAndCount();
 
     this.logger.log(`${this.getNamespace()}.findAll`, {

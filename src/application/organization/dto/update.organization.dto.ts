@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
 import {
   IsBoolean,
@@ -8,6 +9,7 @@ import {
 } from 'class-validator';
 
 export class UpdateOrganizationDto {
+  @ApiProperty()
   @IsOptional()
   @IsString()
   @MinLength(2, { message: 'El nombre debe tener al menos 2 caracteres' })
@@ -15,6 +17,7 @@ export class UpdateOrganizationDto {
   @Transform(({ value }) => value.trim())
   name: string;
 
+  @ApiProperty()
   @IsOptional()
   @IsBoolean()
   isActive?: boolean;
